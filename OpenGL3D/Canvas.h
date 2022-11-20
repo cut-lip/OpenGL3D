@@ -153,6 +153,30 @@ public:
 		else moveTo(x, y);
 	}
 
+	// Initialize Current Transformation (CT)
+	void initCT(void)
+	{
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+	}
+
+	void scale2D(double sx, double sy)
+	{
+		glMatrixMode(GL_MODELVIEW);
+		glScaled(sx, sy, 1.0);	// CT = CT * (2D scaling)
+	}
+
+	void translate2D(double dx, double dy)
+	{
+		glMatrixMode(GL_MODELVIEW);
+		glTranslated(dx, dy, 0.0);	// CT = CT * (2D translation)
+	}
+
+	void rotate2D(double angle)
+	{
+		glMatrixMode(GL_MODELVIEW);
+		glRotated(angle, 0.0, 0.0, 1.0);  // CT = CT * (2D rotation)
+	}
 
 	// More functions to be added
 };

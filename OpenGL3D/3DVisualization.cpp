@@ -31,6 +31,12 @@ void ngon(int n, float cx, float cy, float radius, float rotAngle)
     }
 }
 
+void drawCircle(Point2 center, float radius)
+{
+    const int numVerts = 50;
+    ngon(numVerts, center.getX(), center.getY(), radius, 0);
+}
+
 // Prepare the display
 void display()
 {
@@ -41,6 +47,9 @@ void display()
     cvs.lineTo(0, 10.0);
     RealRect box(-2.0, 2.0, -1.0, 1.0);
     box.draw();
+    //glFlush();
+    ngon(10, 0, 0, 3, 0);
+    glFlush();
 }
 
 
